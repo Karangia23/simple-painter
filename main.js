@@ -1,20 +1,10 @@
-const color = "blue"
-
-const gridNumber = Number(document.querySelector("#grid-size").value)
-
-const createGridButton = document.querySelector(".make-grid-btn")
-createGridButton.addEventListener("click", makeGrid(gridNumber))
-
-const clearButton = document.querySelector(".clear-grid-btn")
-clearButton.addEventListener("click", clearGrid())
+let color = "blue"
 
 function makeGrid(numberOfRows){
     const container = document.querySelector(".screen-tab")
-    console.log(container.target)
     if(container.innerHTML != ''){
         container.innerHTML = ''
     }
-    console.log(container)
     let size = 0
     for(let i=0; i<numberOfRows;i++){
         size++
@@ -30,12 +20,12 @@ function makeGrid(numberOfRows){
 }
 
 function startPainting(color = "red"){
-    const divs = document.querySelectorAll(".screen-tab >  div")
+    const divs = document.querySelectorAll(".square-div")
     if(divs === null){
         return
     }
     divs.forEach((item) =>{
-        item.addEventListener("mouseover", changeColor(item, color))
+        item.addEventListener("mouseover", ()=>{changeColor(item, color)})
     }
     )}
 
@@ -43,31 +33,42 @@ function changeColor(element, color){
     element.style.backgroundColor = color
 }
 
+function changeBaseColor(newColor){
+    color = newColor
+}
+
 function clearGrid(){
-    const divs = document.querySelectorAll(".screen-tab >  div")
+    const divs = document.querySelectorAll(".square-div")
+    if(divs == null){
+        return
+    }
     divs.forEach((item) =>{
         item.style.backgroundColor = "thistle";
     }
     )}
 
 function getColor(){
-    const colorPicker = document.querySelector("div.settings-tab > #color-picker")
-    colorPicker.addEventListener("change", startPainting(colorPicker.value))
+    const colorPicker = document.querySelector("#color-picker")
+    colorPicker.addEventListener("change", ()=>{startPainting(colorPicker.value)})
 }
 
-// function addFunctionality(){
-    
-//     const gridNumber = document.querySelector(".settings-tab #grid-size")
 
-//     const createGridButton = document.querySelector(".settings-tab #make-grid-btn")
-//     createGridButton.addEventListener("click", makeGrid(gridNumber))
-    
-//     const clearButton = document.querySelector(".settings #clear-grid-btn")
-//     if(clearButton === null){
-//         return
-//     } 
-//     clearButton.addEventListener("click", clearGrid())
+let gridNumber = Number(document.querySelector("#grid-size").value)
 
-    
-// }
+const sizeValueInput = document.querySelector("#grid-size")
+sizeValueInput.addEventListener("change", function(){
+    gridNumber = Number(sizeValueInput.value)
+})
 
+const createGridButton = document.querySelector(".make-grid-btn")
+createGridButton.addEventListener('click', ()=>{makeGrid(gridNumber)})
+
+const clearButton = document.querySelector(".clear-grid-btn")
+clearButton.addEventListener("click", clearGrid)
+
+const colorPicker = document.querySelector(".color-picker")
+colorPicker.addEventListener("change", ()=>{changeBaseColor(colorPicker.value)})
+
+makeGrid(15)
+
+// () => {game("Rock")}

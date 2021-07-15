@@ -33,10 +33,13 @@ body {
     background-color: tan;
 }
 
-#make-grid-btn{
+.make-grid-btn{
     background-color: tan;
 }
 
-#clear-grid-btn{
+.clear-grid-btn{
     background-color: tan;
+}
+.color-picker{
+    border-radius: 2px;
 }
