@@ -3,16 +3,18 @@ body {
     background: linear-gradient(90deg, rgba(109,0,156,1) 0%, rgba(0,54,167,1) 29%, rgba(0,223,183,1) 64%);
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .screen-tab{
     background-color: slategrey;
     border: 5px solid #FFFF00;
-    width: 45vw;
-    height: 45vw;
-    position: absolute;               
-    top: 50%;                         
-    transform: translate(50%, -50%);
+    width: 40vw;
+    height: 40vw;
+    /* position: absolute;                */
+    /* top: 50%;                          */
+    /* transform: translate(0%, -50%); */
     display: grid;
     }
 
@@ -24,9 +26,15 @@ body {
     height:100%;
 }
 .settings-tab{
-    border: 15px;
-    border-color: slategrey;
-    background-color: springgreen;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px;
+    border-style: solid;
+    border-width: 20px;
+    border-radius: 25%;
+    border-color: rgb(0, 68, 136);
+    background-color: rgb(167, 164, 0);
 }
 
 #grid-size{
@@ -34,12 +42,21 @@ body {
 }
 
 .make-grid-btn{
+    font-size: 25px;
     background-color: tan;
 }
 
 .clear-grid-btn{
+    font-size: 25px;
     background-color: tan;
 }
 .color-picker{
     border-radius: 2px;
+}
+#color-label{
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#grid-label{
+    font-size: 25px;
 }
