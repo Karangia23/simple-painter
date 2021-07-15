@@ -1,4 +1,7 @@
-let color = "blue"
+const colorPicker = document.querySelector(".color-picker")
+colorPicker.addEventListener("change", ()=>{changeBaseColor(colorPicker.value)})
+
+let color = colorPicker.value
 
 function makeGrid(numberOfRows){
     const container = document.querySelector(".screen-tab")
@@ -35,6 +38,7 @@ function changeColor(element, color){
 
 function changeBaseColor(newColor){
     color = newColor
+    startPainting(color)
 }
 
 function clearGrid(){
@@ -66,8 +70,6 @@ createGridButton.addEventListener('click', ()=>{makeGrid(gridNumber)})
 const clearButton = document.querySelector(".clear-grid-btn")
 clearButton.addEventListener("click", clearGrid)
 
-const colorPicker = document.querySelector(".color-picker")
-colorPicker.addEventListener("change", ()=>{changeBaseColor(colorPicker.value)})
 
 makeGrid(15)
 
