@@ -1,3 +1,3 @@
 # simple-painter
 
-Little web app where one can draw a sketch.
+Little web app where one can sketch various things.
